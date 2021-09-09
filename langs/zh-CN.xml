@@ -1,0 +1,8 @@
+<resources>
+    <string name="INTERNAL_ERROR">服务器内部错误。</string>
+    <string name="NOT_FOUND">找不到资源。</string>
+    <string name="INVALID_USERNAME">无效用户名。</string>
+    <string name="INVALID_PASSWORD">密码无效。</string>
+    <string name="ADDED">"%(obj_name)s" 已创建。</string>
+    <string name="DELETED">%(obj_name)s" 已删除</string>
+</resources>
