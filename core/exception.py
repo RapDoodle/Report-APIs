@@ -90,5 +90,5 @@ def excpetion_handler(fn):
         except Exception as e:
             current_app.logger.critical(str(e))
             traceback.print_exc(file=sys.stdout)
-            return {'error': get_str('INERNAL_ERROR')}, 500
+            return {'error': get_str('INTERNAL_ERROR')}, 500
     return handler

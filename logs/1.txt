@@ -1,0 +1,49 @@
+[2021/09/10 00:58:00] From 127.0.0.1:
+Count: 2
+Product: US_30
+Template: qpl_v4_indicators_normal
+Note: [30, 40, 30]
+Training set: 10000
+Test set: 10000
+[2021/09/10 00:58:31] From 127.0.0.1:
+Count: 3
+Product: US_30
+Template: qpl_v4_indicators_normal
+Note: [30, 40, 30]
+Training set: 21235.6766
+Test set: 12441.5888
+[2021/09/10 01:00:18] From 127.0.0.1:
+Count: 1
+Product: US_30
+Template: qpl_v4_indicators_normal
+Note: [30, 40, 30]
+Training set: 20572.4696
+Test set: 15877.4186
+[2021/09/10 01:00:46] From 127.0.0.1:
+Count: 2
+Product: US_30
+Template: qpl_v4_indicators_normal
+Note: [30, 40, 30]
+Training set: 21131.1957
+Test set: 12362.4632
+[2021/09/10 01:01:14] From 127.0.0.1:
+Count: 3
+Product: US_30
+Template: qpl_v4_indicators_normal
+Note: [30, 40, 30]
+Training set: 2521.3797
+Test set: 6359.2083
+[2021/09/10 01:03:32] From 127.0.0.1:
+Count: 6
+Product: US_30
+Template: qpl_v4_indicators_normal
+Note: [30, 40, 30]
+Training set: 10048.4685
+Test set: 8321.1029
+[2021/09/10 01:03:57] From 127.0.0.1:
+Count: 7
+Product: US_30
+Template: qpl_v4_indicators_normal
+Note: [30, 40, 30]
+Training set: 10000
+Test set: 10000

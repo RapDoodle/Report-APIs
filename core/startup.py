@@ -48,6 +48,12 @@ def create_app(name: str, config_name: str) -> Flask:
 
     # Dynamically load all resources
     load_resources(app)
+
+    # Setup database
+    init_db(app)
+    with app.app_context():
+        db.create_all()
+
     return app
 
 
