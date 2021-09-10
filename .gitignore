@@ -3,6 +3,9 @@ security/
 web/
 data.db
 
+# Logs
+logs/
+
 # IDE specific
 .vscode/
 
