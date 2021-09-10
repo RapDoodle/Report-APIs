@@ -1,5 +1,5 @@
 {
-    "DEBUG": true,
+    "DEBUG": false,
     "SECRET_KEY": "THIS_SHOULD_BE_CHANGED",
     "ENABLE_SIMPLE_HTTP_SERVER": false,
     "RESTFUL_PREFIX": "/api",
