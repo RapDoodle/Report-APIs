@@ -36,12 +36,11 @@ class ReportResource(Resource):
         report = Report(label=label, message=message, ip=ip)
         report.save()
         
-        print(f"[{dt_str}] From {ip}: ")
-        print(f"Label: {label}")
+        print(f"[{dt_str}][{label}] From {ip}: ")
         print(message)
 
         if data['label'] is not None:
-            with open(f"./logs/{label}.txt", 'ab') as file:
+            with open(f"./logs/{label} {ip}.txt", 'ab') as file:
                 file.write(f"\n[{dt_str}] From {request.remote_addr}:\n".encode('UTF-8'))
                 file.write(message.encode('UTF-8'))
 
