@@ -28,19 +28,23 @@ if __name__ == '__main__':
                 hosts = Host.get_online_hosts()
                 for host in hosts:
                     message = host.message
-                    if message.startswith('$PB:'):
-                        progress = message.split('$PB:')[1]
-                        progress = progress.split(',')
+                    
+                    try:
+                        if message.startswith('$PB:'):
+                            progress = message.split('$PB:')[1]
+                            progress = progress.split(',')
 
-                        current = to_number(progress[0])
-                        total = to_number(progress[1])
+                            current = to_number(progress[0])
+                            total = to_number(progress[1])
 
-                        if current < 0 or total < 0:
-                            raise ValueError('contains invalid value (less than 0).')
+                            if current < 0 or total < 0:
+                                raise ValueError('contains invalid value (less than 0).')
 
-                        # Example: $PB:12,100
-                        message = f"{current}/{total}\t"
-                        message = message + draw_progress_bar(current, total, 20)
+                            # Example: $PB:12,100
+                            message = f"{current}/{total}\t"
+                            message = message + draw_progress_bar(current, total, 20)
+                    except:
+                        message = host.message
 
                     table.add_row([host.name, host.ip, message, host.last_received.strftime('%Y-%m-%d %H:%M:%S')])
             table_text = table.draw()
