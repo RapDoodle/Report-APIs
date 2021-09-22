@@ -10,7 +10,7 @@ class Report(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     label = db.Column(db.String(64))
     message = db.Column(db.String(1024))
-    time = db.Column(db.DateTime, default=datetime.datetime.utcnow)
+    time = db.Column(db.DateTime, default=datetime.datetime.now)
     ip = db.Column(db.String(64))
 
     def __init__(self, label, message, ip=''):

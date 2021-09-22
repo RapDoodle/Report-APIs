@@ -1,3 +1,4 @@
 IMPORT_RESOURCES = [
-    'report_resource'
+    'report_resource',
+    'status_resource'
 ]

@@ -4,6 +4,7 @@
 import os
 import re
 import logging
+import logging
 from json import loads
 from datetime import timedelta
 
@@ -180,6 +181,10 @@ def run(app):
         app (flask.app.Flask): A Flask application
 
     """
+    # Disable console messages from Flask
+    log = logging.getLogger('werkzeug')
+    log.setLevel(logging.ERROR)
+
     if app.config.get('ENABLE_HTTPS', False):
         ssl_context = (
             app.config.get('HTTPS_CERT_PATH'), 

@@ -4,7 +4,7 @@
     "ENABLE_SIMPLE_HTTP_SERVER": false,
     "RESTFUL_PREFIX": "/api",
     "HOST": "0.0.0.0",
-    "PORT": 7889,
+    "PORT": 17889,
     "LOG_PATH": "./error.log",
     "LOG_FORMAT": "%(asctime)s %(levelname)s: %(message)s",
     "SQLALCHEMY_DATABASE_URI": "sqlite:///data.db",
