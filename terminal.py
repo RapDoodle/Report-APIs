@@ -30,19 +30,26 @@ if __name__ == '__main__':
                     message = host.message
                     
                     try:
-                        if message.startswith('$PB:'):
-                            progress = message.split('$PB:')[1]
-                            progress = progress.split(',')
+                        if message.startswith('$'):
+                            statements = message.split('$SPLIT')
+                            for statement in statements:
+                                if statement.startswith('$PB:'):
+                                    progress = statement.split('$PB:')[1]
+                                    progress = progress.split(',')
 
-                            current = to_number(progress[0])
-                            total = to_number(progress[1])
+                                    current = to_number(progress[0])
+                                    total = to_number(progress[1])
 
-                            if current < 0 or total < 0:
-                                raise ValueError('contains invalid value (less than 0).')
+                                    if current < 0 or total < 0:
+                                        raise ValueError('contains invalid value (less than 0).')
 
-                            # Example: $PB:12,100
-                            message = f"{current}/{total}\t"
-                            message = message + draw_progress_bar(current, total, 20)
+                                    # Example: $PB:12,100
+                                    message = f"{current}/{total}\t"
+                                    message = message + draw_progress_bar(current, total, 20)
+
+                                elif statement.startswith('$TITLE:'):
+                                    title = statement.split('$TITLE:')[1]
+                                    message = f"[{title}] " + message
                     except:
                         message = host.message
 
