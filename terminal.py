@@ -32,6 +32,7 @@ if __name__ == '__main__':
                     try:
                         if message.startswith('$'):
                             statements = message.split('$SPLIT')
+                            message = ''
                             for statement in statements:
                                 if statement.startswith('$PB:'):
                                     progress = statement.split('$PB:')[1]
@@ -44,7 +45,7 @@ if __name__ == '__main__':
                                         raise ValueError('contains invalid value (less than 0).')
 
                                     # Example: $PB:12,100
-                                    message = f"{current}/{total}\t"
+                                    message = message + f"{current}/{total}\t"
                                     message = message + draw_progress_bar(current, total, 20)
 
                                 elif statement.startswith('$TITLE:'):
