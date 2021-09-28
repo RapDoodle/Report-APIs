@@ -22,7 +22,10 @@ if __name__ == '__main__':
     while True:
         try:
             table = Texttable(max_width=get_terminal_size()[0])
-            table.add_row(['Name', 'IP', 'Message', 'Last received'])
+
+            rows = []
+            rows.append(['Name', 'IP', 'Message', 'Last received'])
+            # table.add_row()
             
             with app.app_context():
                 hosts = Host.get_online_hosts()
@@ -46,15 +49,17 @@ if __name__ == '__main__':
 
                                     # Example: $PB:12,100
                                     message = message + f"{current}/{total}\t"
-                                    message = message + draw_progress_bar(current, total, 20)
+                                    message = message + draw_progress_bar(current, total, 15)
 
                                 elif statement.startswith('$TITLE:'):
                                     title = statement.split('$TITLE:')[1]
                                     message = f"[{title}] " + message
                     except:
                         message = host.message
+                    
+                    rows.append([host.name, host.ip, message, host.last_received.strftime('%Y-%m-%d %H:%M:%S')])
 
-                    table.add_row([host.name, host.ip, message, host.last_received.strftime('%Y-%m-%d %H:%M:%S')])
+            table.add_rows(rows)
             table_text = table.draw()
             if table_text != table_text_prev:
                 clear()
