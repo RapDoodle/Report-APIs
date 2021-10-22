@@ -2,6 +2,7 @@
 security/
 web/
 data.db
+profiles/
 
 # Logs
 logs/

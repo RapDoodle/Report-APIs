@@ -3,6 +3,7 @@
 import sys
 import traceback
 
+from werkzeug.exceptions import BadRequest
 from flask import current_app
 from flask_restful import abort
 from flask_language import current_language
@@ -87,8 +88,11 @@ def excpetion_handler(fn):
             return fn(*args, **kwargs)
         except (ErrorMessage, ErrorMessagePromise) as e:
             abort(400, error=str(e))
+        except BadRequest as e:
+            return {'error': str(e)}, 400
         except Exception as e:
             current_app.logger.critical(str(e))
             traceback.print_exc(file=sys.stdout)
             return {'error': get_str('INTERNAL_ERROR')}, 500
+
     return handler
