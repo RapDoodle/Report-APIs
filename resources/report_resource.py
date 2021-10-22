@@ -31,7 +31,7 @@ class ReportResource(Resource):
         ip = request.remote_addr
         label = data['label'].strip()
         message = data['message'].strip()
-        dt_str = datetime.now().strftime('%Y/%m/%d %H:%M:%S')
+        dt_str = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
         report = Report(label=label, message=message, ip=ip)
         report.save()

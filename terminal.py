@@ -1,3 +1,4 @@
+import re
 from texttable import Texttable
 from time import sleep
 from datetime import datetime
@@ -16,6 +17,10 @@ def clear():
     system('cls' if name=='nt' else 'clear')
 
 
+def natural_keys(text):
+    return [int(d) if d.isdigit() else d for d in re.split(r'(\d+)', text[0])]
+
+
 if __name__ == '__main__':
     app = create_app(name=__name__, config_name='dev')
     table_text_prev = ''
@@ -23,8 +28,8 @@ if __name__ == '__main__':
         try:
             table = Texttable(max_width=get_terminal_size()[0])
 
-            rows = []
-            rows.append(['Name', 'IP', 'Message', 'Last received'])
+            data_rows = []
+            title_row = ['Name', 'IP', 'Message', 'Last received']
             # table.add_row()
             
             with app.app_context():
@@ -57,9 +62,10 @@ if __name__ == '__main__':
                     except:
                         message = host.message
                     
-                    rows.append([host.name, host.ip, message, host.last_received.strftime('%Y-%m-%d %H:%M:%S')])
+                    data_rows.append([host.name, host.ip, message, host.last_received.strftime('%Y-%m-%d %H:%M:%S')])
+                    data_rows.sort(key=natural_keys)
 
-            table.add_rows(rows)
+            table.add_rows([title_row, *data_rows])
             table_text = table.draw()
             if table_text != table_text_prev:
                 clear()

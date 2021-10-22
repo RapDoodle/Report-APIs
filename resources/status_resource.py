@@ -39,7 +39,7 @@ class StatusResource(Resource):
         name = data['name'].strip()
         message = data['message'].strip()
         update_name = data['update_name']
-        dt_str = datetime.now().strftime('%Y/%m/%d %H:%M:%S')
+        dt_str = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
         host = Host.find_host_by_ip(ip=ip)
 
